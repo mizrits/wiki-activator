@@ -31,7 +31,7 @@ if __name__ == "__main__":
     ##var
     s=os.environ["ACTIVATOR_BOT_NAME"]
     pw=os.environ["ACTIVATOR_BOT_PASSWORD"]
-    p=datetime.datetime.now().strftime('%Y年第%V週')
+    p=datetime.datetime.now().strftime('話題/%Y年第%V週')
     API_ENDPOINT = os.environ["ACTIVATOR_WIKIAPI"]
     ##access
     S = requests.Session()
