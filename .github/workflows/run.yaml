@@ -21,6 +21,6 @@ jobs:
         env:
           ACTIVATOR_BOT_NAME: ${{ secrets.ACTIVATOR_BOT_NAME }}
           ACTIVATOR_BOT_PASSWORD: ${{ secrets.ACTIVATOR_BOT_PASSWORD }}
-          ACTIVATOR_COOKIES: ${{ secrets.ACTIVATOR_COOKIES }}
+          BING_COOKIES: ${{ secrets.ACTIVATOR_COOKIES }}
           ACTIVATOR_WIKIAPI: ${{ secrets.ACTIVATOR_WIKIAPI }}
         run: python activate.py
