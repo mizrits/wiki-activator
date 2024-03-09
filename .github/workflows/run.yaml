@@ -1,0 +1,26 @@
+name: Activator
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  activation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Python
+        env:
+          ACTIVATOR_BOT_NAME: ${{ secrets.ACTIVATOR_BOT_NAME }}
+          ACTIVATOR_BOT_PASSWORD: ${{ secrets.ACTIVATOR_BOT_PASSWORD }}
+          ACTIVATOR_COOKIES: ${{ secrets.ACTIVATOR_COOKIES }}
+          ACTIVATOR_WIKIAPI: ${{ secrets.ACTIVATOR_WIKIAPI }}
+        run: python activate.py
