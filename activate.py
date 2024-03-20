@@ -5,6 +5,7 @@ import requests
 from pytrends.request import TrendReq
 import datetime
 import re
+import random
 #os.environ["BING_COOKIES"] = "" //secrets
 
 async def main() -> None:
