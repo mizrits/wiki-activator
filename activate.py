@@ -29,9 +29,30 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(main())
     ##var
-    s=os.environ["ACTIVATOR_BOT_NAME"]
-    pw=os.environ["ACTIVATOR_BOT_PASSWORD"]
-    p=datetime.datetime.now().strftime('話題/%Y年第%V週')
+    u=os.environ["ACTIVATOR_BOT_NAME"]
+    p=os.environ["ACTIVATOR_BOT_PASSWORD"]
+    t=datetime.datetime.now().strftime('話題/%Y年第%V週')
+    r=random.randint(1, 100) % 10
+    if r == 0:
+        s="今日もいろいろありましたねー。"
+    elif r == 1:
+        s="毎日様々な出来事が起き、忘れられる。。。"
+    elif r == 2:
+        s="日課の更新"
+    elif r == 3:
+        s="今日のニュース"
+    elif r == 4:
+        s="daily"
+    elif r == 5:
+        s="時の流れは速い"
+    elif r == 6:
+        s="日報"
+    elif r == 7:
+        s="今日の日報"
+    elif r == 8:
+        s="定期"
+    else:
+        s=""
     API_ENDPOINT = os.environ["ACTIVATOR_WIKIAPI"]
     ##access
     S = requests.Session()
@@ -47,8 +68,8 @@ if __name__ == "__main__":
     #login
     PARAMS_1 = {
         "action": "login",
-        "lgname": s,
-        "lgpassword": pw,
+        "lgname": u,
+        "lgpassword": p,
         "lgtoken": LOGIN_TOKEN,
         "format": "json"
     }
@@ -64,10 +85,11 @@ if __name__ == "__main__":
     #POST request to edit a page
     PARAMS_3 = {
         "action": "edit",
-        "title": p,
+        "title": t,
         "token": CSRF_TOKEN,
         "format": "json",
-        "appendtext": post
+        "appendtext": post,
+        "summary": s
     }
     R = S.post(API_ENDPOINT, data=PARAMS_3)
     print(R.json())
