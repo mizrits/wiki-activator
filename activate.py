@@ -21,7 +21,7 @@ async def main() -> None:
         #print(response2)
         response3 = await sydney.ask(topic3+"に関するニュース記事について要約して。要約文本文のみ")
         #print(response3)
-        markdown="\n=={{subst:CURRENTYEAR}}-{{subst:CURRENTMONTH}}-{{subst:CURRENTDAY2}}のトレンド上位3つ==\n==="+topic1+"===\n"+response1+"\n\n==="+topic2+"===\n"+response2+"\n\n==="+topic3+"===\n"+response3
+        markdown="\n=={{subst:LOCALYEAR}}-{{subst:LOCALMONTH}}-{{subst:LOCALDAY2}}のトレンド上位3つ==\n==="+topic1+"===\n"+response1+"\n\n==="+topic2+"===\n"+response2+"\n\n==="+topic3+"===\n"+response3
         postpre=re.sub('\[(.*)\]\((.*)\)', '[\\2 \\1]', markdown).replace('\n- ', '\n* ').replace("**", "'''")
         post=re.sub('\[\^(.*)\^\]', '', postpre)
         #print(post)
