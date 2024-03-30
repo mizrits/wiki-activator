@@ -6,6 +6,7 @@ from pytrends.request import TrendReq
 import datetime
 import re
 import random
+import time
 #os.environ["BING_COOKIES"] = "" //secrets
 
 async def main() -> None:
@@ -54,6 +55,10 @@ if __name__ == "__main__":
         s="定期"
     else:
         s=""
+    min=random.randint(0, 4)
+    sec=random.randint(0, 59)
+    wait=(min*60)+sec
+    time.sleep(wait)
     API_ENDPOINT = os.environ["ACTIVATOR_WIKIAPI"]
     ##access
     S = requests.Session()
