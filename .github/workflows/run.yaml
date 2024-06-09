@@ -1,4 +1,4 @@
-name: Activator
+name: ActivatorRev
 
 on:
   schedule:
